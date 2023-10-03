@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Authentication</title>
+</head>
+<body>
+    <h1>Simple Authentication System</h1>
+    
+    <label for="userEmail">userEmail:</label>
+    <input type="text" id="userEmail"><br>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password"><br>
+
+    <button onclick="login()">Login</button>
+    <button onclick="logout()">Logout</button>
+    
+    <script>
+        // Function to perform login
+function login() {
+    const userEmail = document.getElementById('userEmail').value;
+    const password = document.getElementById('password').value;
+
+    // Make an HTTP request to validate user's credentials
+    fetch('/auth.json', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userEmail, password })
+    })
+    .then(data => {
+        if(JSON.parse(userEmail) == data[0].email && JSON.parse(password) == data[0].password) {
+            localStorage.setItem('authToken', data.token);
+            alert('Login successful!');
+        }else {
+            alert('login fail');
+        }
+
+    })
+    .catch(error => console.error('Error:', error));
+    }
+
+    // Function to perform logout
+    function logout() {
+        // Remove authentication token from localStorage
+        localStorage.removeItem('authToken');
+        alert('Logged out.');
+    }
+
+    </script>
+</body>
+</html>

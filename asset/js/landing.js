@@ -24,7 +24,7 @@ fetch("./data.json")
                                         d.content,
                                         10
                                       )}</p>
-                                      <a href="#" class="btn-read-more">Read More
+                                      <a href="./view/detail.html?id=${d.id}" class="btn-read-more">Read More
                                           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                               <g clip-path="url(#clip0_4_68)">
                                                 <path d="M8.75 7.5L11.25 10L8.75 12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -76,7 +76,7 @@ fetch("./data.json")
                                     d.content,
                                     10
                                   )}</p>
-                                  <a href="#" class="btn-read-more">Read More
+                                  <a href="./view/detail.html?id=${d.id}" class="btn-read-more">Read More
                                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                                           <g clip-path="url(#clip0_4_68)">
                                             <path d="M8.75 7.5L11.25 10L8.75 12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
