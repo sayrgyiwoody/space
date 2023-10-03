@@ -21,6 +21,82 @@
     line-height: normal;
 }
 
+.btn-login {
+  font-family: inherit;
+  font-size: 18px;
+  background: var(--muted, #E5F0FF);
+  color: white;
+  padding: 5px 10px;
+  display: grid;
+  grid-template-columns: auto 0fr;
+  align-items: center;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  position: relative;
+}
+
+.btn-login:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  grid-template-columns: auto 1fr;
+}
+
+.btn-login:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-login svg {
+  color: #112240;
+  transition: all 0.3s;
+}
+
+.btn-login .svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  transition: all 0.3s;
+}
+
+.btn-login:hover .svg-wrapper {
+  margin-right: 0.5em;
+  animation: bounce 1.2s ease-in-out;
+}
+
+.btn-login:hover svg {
+  z-index: 1;
+
+}
+
+.btn-login .text {
+  color: #112240;
+  font-family: Prompt;
+  font-size: 22px;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+@keyframes bounce {
+  0% {
+    translate: 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+
+  100% {
+    translate: 0;
+  }
+}
+
+
+
 .main-container .overlay {
     position: absolute;
     top: 0;
@@ -83,7 +159,15 @@
 
 .btn-explore:hover {
     background: #3466b6;
-    
+    transform: scale(1.1);
+}
+
+.btn-explore svg {
+  transition: .5s;
+}
+
+.btn-explore:hover svg {
+  transform: scale(1.2) rotate(45deg);
 }
 
 .posts-container {
@@ -106,15 +190,14 @@
     height: 100%;
   }
 
-  .recommend-title {
-    position: absolute;
-    top: 10px;
-    left: 20px;
+  .recommend-title,.latest-title {
+    position: relative;
     z-index: 2;
     color: #FFF;
     font-family: Prompt;
     font-size: 22px;
     font-weight: 400;
+    margin-bottom: 20px;
   }
 
 
@@ -157,9 +240,15 @@
     background: #194a93;
 }
 
+.btn-read-more svg {
+  transition: .5s;
+}
+
+.btn-read-more:hover svg {
+  transform: translateX(7px);
+}
 .post {
   width: 300px;
-  margin-top: 80px;
 
 }
 
@@ -181,3 +270,30 @@
   }
 
 
+/* for mobile responsive  */
+@media only screen and (max-width: 600px) {
+
+  .text-container h4 {
+    font-size: 38px;
+    font-weight: 500;
+  }
+
+  .text-container p {
+    width: auto;
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.main-container {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: auto;
+  padding: 20px 0px;
+}
+
+.main-container img{
+  height: 300px;
+  margin: auto;
+}
+}
