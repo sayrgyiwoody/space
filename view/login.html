@@ -42,6 +42,16 @@
               <p class="text-center text-white">Keep Calm and Focus.</p>
               <hr class="mb-0 text-white">
               <div id="loginForm" class="px-2">
+                <div class="card card-body invalid-box mt-3 d-none">
+                  <div class="email-invalid d-none mb-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="white" d="M11 15h2v2h-2v-2m0-8h2v6h-2V7m1-5C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8Z"/></svg>
+                    <span class="ms-2 text-white">Email is invalid</span>
+                  </div>
+                  <div class="password-invalid d-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="white" d="M11 15h2v2h-2v-2m0-8h2v6h-2V7m1-5C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8Z"/></svg>
+                    <span class="ms-2 text-white">Password is invalid</span>
+                  </div>
+                </div>
                 <!-- @csrf -->
                   <div class="input-gp my-4">
                       <input id="emailInput" value="" required="" name="email" type="text" class="login-input">

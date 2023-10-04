@@ -27,15 +27,27 @@ btnLogin.addEventListener("click",function(){
     
 })
 
+
+const emailInvalid = document.querySelector(".email-invalid");
+const passwordInvalid = document.querySelector(".password-invalid");
+const invalidBox = document.querySelector(".invalid-box");
+
 function requestLogin(userEmail,userPassword){
+    invalidBox.classList.add("d-none");
+    emailInvalid.classList.add("d-none");
+    passwordInvalid.classList.add("d-none");
+
+
     fetch(".././userData.json")
   .then((response) => response.json())
   .then((data) => {
         if(userEmail == data[0].email && userPassword == data[0].password) {
             localStorage.setItem('authToken', data[0].token);
             Swal.fire({
-                icon: 'success',
-                title: 'Login Success',
+                imageUrl: '../asset/images/login-astro.png',
+                title: 'Welcome to SPACE',
+                imageHeight : 200,
+                text : 'Share your thoughts to the whole universe.',
                 showConfirmButton: true,
               }).then((result) => {
                 if (result.isConfirmed) {
@@ -43,19 +55,13 @@ function requestLogin(userEmail,userPassword){
                 }
               })
         }else {
-            let errorMsg = '';
+            invalidBox.classList.remove("d-none");
             if(userEmail !== data[0].email) {
-                errorMsg += 'Email is incorrect! ';
+                emailInvalid.classList.remove("d-none");
             }
             if(userPassword !== data[0].password){
-                errorMsg += 'Password is incorrect! ';
+                passwordInvalid.classList.remove("d-none");
             }
-            Swal.fire({
-                icon: 'error',
-                title: 'Oops...',
-                text: `${errorMsg}`,
-                // footer: '<a href="">Why do I have this issue?</a>'
-              })
         }
 
     })

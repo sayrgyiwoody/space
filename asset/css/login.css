@@ -17,6 +17,8 @@
     background-color: rgba(115, 118, 122, 0.1);
 }
 
+
+
 .login-input {
     background-color: rgba(115, 118, 122, 0.4);
     /* box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px; */
@@ -29,6 +31,12 @@
     padding-top: 1.7rem;
     font-size: 1.1rem;
     transition: border 150ms cubic-bezier(0.4,0,0.2,1);
+}
+
+.invalid-box {
+  background-color: rgba(115, 118, 122, 0.1);
+
+
 }
 
 .login-label {
