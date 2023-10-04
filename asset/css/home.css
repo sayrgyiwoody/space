@@ -1,0 +1,112 @@
+.btn-logout {
+    font-family: inherit;
+    font-size: 18px;
+    background: var(--muted, #e5f0ff);
+    color: white;
+    padding: 5px 10px;
+    display: grid;
+    grid-template-columns: auto 0fr;
+    align-items: center;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+    position: relative;
+  }
+  
+  .btn-logout:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    grid-template-columns: auto 1fr;
+  }
+  
+  .btn-logout:active {
+    transform: scale(0.95);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-logout svg {
+    color: #112240;
+    transition: all 0.3s;
+  }
+  
+  .btn-logout .svg-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    transition: all 0.3s;
+  }
+  
+  .btn-logout:hover .svg-wrapper {
+    margin-right: 0.5em;
+    animation: bounce 1.2s ease-in-out;
+  }
+  
+  .btn-logout:hover svg {
+    z-index: 1;
+  }
+  
+  .btn-logout .text {
+    color: #112240;
+    font-family: Prompt;
+    font-size: 22px;
+    font-weight: 600;
+    overflow: hidden;
+  }
+
+
+  .btn-publish {
+    color: #fff;
+    font-family: Prompt;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: var(--secondary, #25467b);
+    transition: 0.5s;
+  }
+  
+  .btn-publish:hover {
+    background: #3466b6;
+  }
+  
+  .btn-publish svg {
+    transition: 0.5s;
+  }
+  
+  .btn-publish:hover svg {
+    transform: scale(1.2) rotate(45deg);
+  }
+
+  /* create post form  */
+.create-form{
+  padding: 20px;
+  font-family: Prompt;
+}
+
+.create-form label {
+  font-weight: 600;
+}
+
+.bg-dark-2 {
+  background-color: #112240;
+}
+
+.create-title {
+  font-family: Prompt;
+  font-weight: 500;
+}
+
+/* mobile responsive */
+@media only screen and (max-width: 767px) {
+  .post-create-container{
+    /* display: none; */
+  }
+}
+  

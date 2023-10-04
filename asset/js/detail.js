@@ -13,7 +13,7 @@ fetch("../data.json")
     detailPost.innerHTML = `
 <div class="row justify-content-center px-3 py-2">
 <div class="col-md-6 p-3 detail-post z-1">
-    <div class="d-flex justify-content-between align-items-center">
+    <div class=" d-flex justify-content-between align-items-center">
         <div class="d-flex align-items-center">
             <div class="img-container">
                 <img class="rounded-circle" width="70" src="https://ui-avatars.com/api/?name=${post[0].created_by}&background=0D8ABC&color=fff" alt="">
@@ -53,6 +53,8 @@ fetch("../data.json")
     const authToken = localStorage.getItem('authToken');
     if(authToken== null){
         window.location = "../index.html"
+    }else {
+        window.location = "./home.html";
     }
   }
 
@@ -64,5 +66,18 @@ fetch("../data.json")
 
 //   delete post with post id 
     function deletePost(id){
-        console.log(id);
+        fetch("../data.json")
+        .then((response) => response.json())
+        .then((data) => {
+            const newData = data.filter(d => d.id != id);
+            updateData(newData);
+        });
     }
+
+    async function updateData(newData) {
+      localStorage.setItem(newData);
+        
+      }
+      
+    
+      
