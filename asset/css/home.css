@@ -58,7 +58,7 @@
   }
 
 
-  .btn-publish {
+  .btn-publish ,.btn-update {
     color: #fff;
     font-family: Prompt;
     font-size: 20px;
@@ -72,15 +72,15 @@
     transition: 0.5s;
   }
   
-  .btn-publish:hover {
+  .btn-publish:hover , .btn-update:hover {
     background: #3466b6;
   }
   
-  .btn-publish svg {
+  .btn-publish svg,.btn-update svg {
     transition: 0.5s;
   }
   
-  .btn-publish:hover svg {
+  .btn-publish:hover svg ,.btn-update:hover svg {
     transform: scale(1.2) rotate(45deg);
   }
 
