@@ -1,60 +1,73 @@
 const posts_container = document.getElementById("posts-container");
 
-//fetch from data.json
-fetch("../data.json")
-  .then((response) => response.json())
-  .then((data) => {
-    // showing the recommend posts with ascending view_count
-    data.sort((a, b) => {
-      return new Date(b.created_at) - new Date(a.created_at);
-    });
+// fetch all posts from data.json
+const getHomePosts = async () => {
+  try {
+    const response = await fetch(`http://localhost:3000/posts/`);
+    const data = await response.json();
 
-    const latest = data.slice(0, 10);
+    if (data) {
+      // render to home post containers 
+      renderHomePosts(data);
+    } else {
+      console.error(`Posts not found.`);
+    }
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
 
-    // add posts to latest posts container with foreach
+getHomePosts();
 
-    latest.forEach((d) => {
-        posts_container.innerHTML += `
-        <div class="col-12 p-3 pb-4 mb-3 detail-post z-1">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center">
-                    <div class="img-container">
-                        <img class="rounded-circle" width="60"
-                            src="https://ui-avatars.com/api/?name=${d.created_by}&background=0D8ABC&color=fff" alt="">
-                    </div>
-                    <div class=" ms-2">
-                        <p class="name m-0">${d.created_by}</p>
-                        <p class="date m-0">${getFormatDate(d.created_at)}</p>
-                    </div>
-                </div>
-            </div>
-            <div class="post-img mt-3 mb-2 rounded">
-                <img class="img-thumbnail rounded"
-                    src="${d.image_url}"
-                    alt="">
-            </div>
-            <h4>${d.title}</h4>
-            <p class="mb-3">${limitWords(d.content,20)}</p>
-            <a href="../view/detail.html?id=${d.id}" class="btn-read-more">Read More
-                                          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                              <g clip-path="url(#clip0_4_68)">
-                                                <path d="M8.75 7.5L11.25 10L8.75 12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                                <path d="M1.66666 10C1.66666 6.07169 1.66666 4.10752 2.88666 2.88669C4.10832 1.66669 6.07166 1.66669 9.99999 1.66669C13.9283 1.66669 15.8925 1.66669 17.1125 2.88669C18.3333 4.10835 18.3333 6.07169 18.3333 10C18.3333 13.9284 18.3333 15.8925 17.1125 17.1125C15.8933 18.3334 13.9283 18.3334 9.99999 18.3334C6.07166 18.3334 4.10749 18.3334 2.88666 17.1125C1.66666 15.8934 1.66666 13.9284 1.66666 10Z" stroke="white" stroke-width="2"/>
-                                              </g>
-                                              <defs>
-                                                <clipPath id="clip0_4_68">
-                                                  <rect width="20" height="20" fill="white"/>
-                                                </clipPath>
-                                              </defs>
-                                            </svg>
-                                      </a>
-        </div>
-`;
-    });
-  })
-  .catch((error) => {
-    console.error("Error:", error);
+function renderHomePosts(data){
+  data.sort((a, b) => {
+    return new Date(b.id) - new Date(a.id);
   });
+
+  const latest = data.slice(0, 10);
+
+  // add posts to latest posts container with foreach
+
+  latest.forEach((d) => {
+      posts_container.innerHTML += `
+      <div class="col-12 p-3 pb-4 mb-3 detail-post z-1">
+          <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                  <div class="img-container">
+                      <img class="rounded-circle" width="60"
+                          src="https://ui-avatars.com/api/?name=${d.created_by}&background=0D8ABC&color=fff" alt="">
+                  </div>
+                  <div class=" ms-2">
+                      <p class="name m-0">${d.created_by}</p>
+                      <p class="date m-0">${getFormatDate(d.created_at)}</p>
+                  </div>
+              </div>
+          </div>
+          <div class="post-img mt-3 mb-2 rounded">
+              <img class="img-thumbnail rounded"
+                  src="${d.image_url}"
+                  alt="">
+          </div>
+          <h4>${d.title}</h4>
+          <p class="mb-3">${limitWords(d.content,20)}</p>
+          <a href="../view/detail.html?id=${d.id}" class="btn-read-more">Read More
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                            <g clip-path="url(#clip0_4_68)">
+                                              <path d="M8.75 7.5L11.25 10L8.75 12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                              <path d="M1.66666 10C1.66666 6.07169 1.66666 4.10752 2.88666 2.88669C4.10832 1.66669 6.07166 1.66669 9.99999 1.66669C13.9283 1.66669 15.8925 1.66669 17.1125 2.88669C18.3333 4.10835 18.3333 6.07169 18.3333 10C18.3333 13.9284 18.3333 15.8925 17.1125 17.1125C15.8933 18.3334 13.9283 18.3334 9.99999 18.3334C6.07166 18.3334 4.10749 18.3334 2.88666 17.1125C1.66666 15.8934 1.66666 13.9284 1.66666 10Z" stroke="white" stroke-width="2"/>
+                                            </g>
+                                            <defs>
+                                              <clipPath id="clip0_4_68">
+                                                <rect width="20" height="20" fill="white"/>
+                                              </clipPath>
+                                            </defs>
+                                          </svg>
+                                    </a>
+      </div>
+`;
+  });
+}
+
 
 // limit for content word
 function limitWords(text, maxWords) {
@@ -72,11 +85,6 @@ function getFormatDate(date){
     return new Date(date).toLocaleDateString(undefined, options);
   }
 
-//logout
-function logout(){
-    localStorage.removeItem("authToken");
-    window.location = '../index.html';
-}
 
 //show/hide create form for mobile responsive
 
@@ -102,3 +110,4 @@ function showCreate(){
         createForm.classList.add("d-none");
     }
 }
+
