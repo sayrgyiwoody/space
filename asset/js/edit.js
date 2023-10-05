@@ -28,10 +28,12 @@ function renderInputValue(post){
     const title = document.getElementById("titleInput");
     const image = document.getElementById("imageInput");
     const content = document.getElementById("contentInput");
-    
+    const viewCount = document.getElementById("viewCount");
+
     title.value = post.title;
     image.value = post.image_url;
     content.value = post.content;
+    viewCount.value = post.view_count;
 }
 
 // back to detail page 
@@ -47,6 +49,8 @@ btnUpdate.addEventListener("click",function(){
     const title = document.getElementById("titleInput").value;
     const image = document.getElementById("imageInput").value;
     const content = document.getElementById("contentInput").value;
+    const viewCount = document.getElementById("viewCount").value;
+
 
     if(validateCreateForm(title,image,content)){
       const date = new Date();
@@ -59,7 +63,7 @@ btnUpdate.addEventListener("click",function(){
           "content": content,
           "created_at": formattedDate,
           "created_by": "User",
-          "view_count": null
+          "view_count": viewCount
       };
       updatePost(post);
     }

@@ -33,7 +33,7 @@
   <!-- nav bar start  -->
   <nav class="navbar">
     <div class="container-fluid px-4">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" href="../index.html">
         <img src="./asset/images/logo.png" alt="Logo" width="60" height="44" class="d-inline-block align-text-top">
         <span>SPACE</span>
       </a>
@@ -136,7 +136,15 @@
 
   <script>
     const btnAuthDiv = document.querySelector(".btn-auth-div");
-    const authToken = localStorage.getItem("authToken");
+    var authToken = localStorage.getItem("authToken");
+
+    document.querySelector(".btn-explore").addEventListener("click",function(){
+      if(authToken){
+        window.location = "./view/home.html";
+      }else {
+        window.location = "./view/login.html";
+      }
+    })
 
     //showing login or logout according to authToken in localStorage
     if(authToken){

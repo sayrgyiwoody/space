@@ -82,7 +82,7 @@ function getFormatDate(date){
 function deletePost(id){
   if(checkAuthToken()){
         Swal.fire({
-          imageUrl: '../asset/images/login-astro.png',
+          imageUrl: '../asset/images/login-astro2.png',
               title: 'Are you sure?',
               imageHeight : 200,
               text : "You won't be able to revert this!",
@@ -127,7 +127,7 @@ function editPost(id){
     window.location = `../view/edit.html?id=${id}`;
   }else {
     Swal.fire({
-      imageUrl: '../asset/images/login-astro.png',
+      imageUrl: '../asset/images/login-astro3.png',
           title: 'Login Required',
           imageHeight : 200,
           text : 'Please login first to use this feature.',
