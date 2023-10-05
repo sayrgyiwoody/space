@@ -1,5 +1,7 @@
 const posts_container = document.getElementById("posts-container");
 
+var currentPage = 1;
+
 // fetch all posts from data.json
 const getHomePosts = async () => {
   try {
@@ -8,6 +10,7 @@ const getHomePosts = async () => {
 
     if (data) {
       // render to home post containers 
+      checkPaginateBtns(data.length);
       renderHomePosts(data);
     } else {
       console.error(`Posts not found.`);
@@ -17,6 +20,39 @@ const getHomePosts = async () => {
   }
 }
 
+const paginateBtns = document.getElementById("paginate-btns");
+
+function checkPaginateBtns(dataLength){
+  const postsPerPage = 10;
+  const totalPage = Math.ceil(dataLength / postsPerPage);
+
+  paginateBtns.innerHTML = `
+    <button style="background-color:#155ccd;" onclick="changePage(${currentPage}-1)" class="btn btn-primary btn-pre">
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="white" d="M22 12a10 10 0 0 1-10 10A10 10 0 0 1 2 12A10 10 0 0 1 12 2a10 10 0 0 1 10 10m-8-5l-5 5l5 5V7Z"/></svg>
+    Previous</button>
+    <span class="text-white">Showing Page ${currentPage} of ${totalPage}</span>
+    <button style="background-color:#155ccd;" onclick="changePage(${currentPage}+1)" class="btn btn-primary btn-next">Next
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="white" d="M2 12A10 10 0 0 1 12 2a10 10 0 0 1 10 10a10 10 0 0 1-10 10A10 10 0 0 1 2 12m8 5l5-5l-5-5v10Z"/></svg></button>
+  `;
+  
+  if(currentPage == 1){
+    document.querySelector(".btn-pre").classList.add("d-none");
+  }
+  if(currentPage == totalPage){
+    document.querySelector(".btn-next").classList.add("d-none");
+  }
+}
+
+function changePage(page){
+  currentPage = page;
+  getHomePosts();
+  document.querySelector(".scroll-container").scrollTop = 0;
+}
+
+
+
+checkPaginateBtns();
+
 getHomePosts();
 
 function renderHomePosts(data){
@@ -24,7 +60,16 @@ function renderHomePosts(data){
     return new Date(b.id) - new Date(a.id);
   });
 
-  const latest = data.slice(0, 10);
+
+  const postsPerPage = 10;
+  const totalPage = data.length / postsPerPage;
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+
+
+  const latest = data.slice(startIndex, endIndex);
+
+  posts_container.innerHTML = "";
 
   // add posts to latest posts container with foreach
 

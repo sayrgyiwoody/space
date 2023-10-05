@@ -46,22 +46,57 @@ btnUpdate.addEventListener("click",function(){
     const image = document.getElementById("imageInput").value;
     const content = document.getElementById("contentInput").value;
 
-    const date = new Date();
-    const formattedDate = date.toISOString();
+    if(validateCreateForm(title,image,content)){
+      const date = new Date();
+      const formattedDate = date.toISOString();
 
-    const post = {
-        "id": postId,
-        "title": title,
-        "image_url": image,
-        "content": content,
-        "created_at": formattedDate,
-        "created_by": "User",
-        "view_count": null
-    };
+      const post = {
+          "id": postId,
+          "title": title,
+          "image_url": image,
+          "content": content,
+          "created_at": formattedDate,
+          "created_by": "User",
+          "view_count": null
+      };
 
-    updatePost(post);
+      updatePost(post);
+    }
+    
     
 })
+
+// checking validation post create form 
+function validateCreateForm(title,image,content){
+  var validateBox = document.querySelector(".validate-box");
+  var titleInvalid = document.querySelector(".title-invalid");
+  var imageInvalid = document.querySelector(".image-invalid");
+  var contentInvalid = document.querySelector(".content-invalid");   
+
+  if(title && image && content){
+      validateBox.classList.add("d-none");
+      return true;
+  }else {
+      validateBox.classList.remove("d-none");
+      
+      if(title){
+          titleInvalid.classList.add("d-none");
+      }else {
+          titleInvalid.classList.remove("d-none");
+      }
+      if(image){
+          imageInvalid.classList.add("d-none");
+      }else {
+          imageInvalid.classList.remove("d-none");
+      }
+      if(content){
+          contentInvalid.classList.add("d-none");
+      }else {
+          contentInvalid.classList.remove("d-none");
+      }
+      return false;
+  }
+}
 
 // update post to json 
 function updatePost(post){

@@ -334,11 +334,11 @@
       "view_count": null
     },
     {
-      "id": 43,
-      "title": "test",
-      "image_url": "https://img.freepik.com/free-vector/cute-astronaut-concept-illustration_114360-8709.jpg?w=1060&t=st=1696486068~exp=1696486668~hmac=02b4ef76daa98643e5b2180b656f6b6e7bb0e2cad8cf2e7fbadbc9ce6c0e967e",
-      "content": "test edit post",
-      "created_at": "2023-10-05T06:21:10.528Z",
+      "id": 42,
+      "title": "title",
+      "image_url": "https://themeslay.com/wp-content/uploads/2022/03/Enefti-NFT-Marketplace-Theme.jpg",
+      "content": "hello testing post validation",
+      "created_at": "2023-10-05T09:32:19.450Z",
       "created_by": "User",
       "view_count": null
     }
