@@ -1,10 +1,9 @@
 
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get('id');
-
-
 const detailPost = document.querySelector("#detail-post");
 
+// fetching post with post id 
 const getDetailPost = async (postId) => {
   try {
     const response = await fetch(`http://localhost:3000/posts/${postId}`);
@@ -20,8 +19,10 @@ const getDetailPost = async (postId) => {
   }
 }
 
+//getting post detail with post id
 getDetailPost(postId);
 
+//redering post to detail post container div
 function renderPost(post){
   detailPost.innerHTML = `
   <div class="row justify-content-center px-3 py-2">
@@ -61,25 +62,25 @@ function renderPost(post){
   `;
 }
 
-//   go to home page 
-  function backToHome(){
-    const authToken = localStorage.getItem('authToken');
-    if(authToken== null){
-        window.location = "../index.html"
-    }else {
-        window.location = "./home.html";
-    }
+//go to home page 
+function backToHome(){
+  const authToken = localStorage.getItem('authToken');
+  if(authToken== null){
+      window.location = "../index.html"
+  }else {
+      window.location = "./home.html";
   }
+}
 
-//   convert date to formatted date 
-  function getFormatDate(date){
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
-    return new Date(date).toLocaleDateString(undefined, options);
-  }
+//convert date to formatted date 
+function getFormatDate(date){
+  const options = { year: 'numeric', month: 'long', day: 'numeric' };
+  return new Date(date).toLocaleDateString(undefined, options);
+}
 
-//   delete post with post id 
-    function deletePost(id){
-      if(checkAuthToken()){
+//delete post with post id 
+function deletePost(id){
+  if(checkAuthToken()){
         Swal.fire({
           imageUrl: '../asset/images/login-astro.png',
               title: 'Are you sure?',
@@ -102,8 +103,8 @@ function renderPost(post){
           }
         })
         
-      }else {
-        Swal.fire({
+  }else {
+    Swal.fire({
           imageUrl: '../asset/images/login-astro.png',
               title: 'Login Required',
               imageHeight : 200,
@@ -112,16 +113,15 @@ function renderPost(post){
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
           confirmButtonText: 'Go to Login'
-        }).then((result) => {
+    }).then((result) => {
           if (result.isConfirmed) {
             window.location = "./login.html"
           }
-        })
-      }
+    })
+  }
+}
 
-    }
-
-// direct to edit post 
+//direct to edit post 
 function editPost(id){
   if(checkAuthToken()){
     window.location = `../view/edit.html?id=${id}`;
@@ -143,14 +143,14 @@ function editPost(id){
   }
 }
 
-      // check auth token from localStorage 
-      function checkAuthToken(){
-        const authToken = localStorage.getItem('authToken');
-        if(authToken){
-          return true;
-        }
-        return false;
-      }
+//check auth token from localStorage 
+function checkAuthToken(){
+  const authToken = localStorage.getItem('authToken');
+  if(authToken){
+    return true;
+  }
+  return false;
+}
       
     
       

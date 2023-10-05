@@ -1,9 +1,11 @@
+// get id from url bar ?id = 
 var urlParams = new URLSearchParams(window.location.search);
 var postId = urlParams.get('id');
 
 const btnBackDetail = document.querySelector(".btn-back-detail");
 const btnUpdate = document.querySelector(".btn-update");
 
+// get post with id with fetch 
 const getEditPost = async (postId) => {
     try {
       const response = await fetch(`http://localhost:3000/posts/${postId}`);
@@ -59,7 +61,6 @@ btnUpdate.addEventListener("click",function(){
           "created_by": "User",
           "view_count": null
       };
-
       updatePost(post);
     }
     

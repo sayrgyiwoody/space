@@ -110,10 +110,5 @@
   font-weight: 500;
 }
 
-/* mobile responsive */
-@media only screen and (max-width: 767px) {
-  .post-create-container{
-    /* display: none; */
-  }
-}
+
   

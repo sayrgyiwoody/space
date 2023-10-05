@@ -3,7 +3,7 @@
 }
 
 
-
+/* nav bar start  */
 .navbar {
   background: var(--secondary, #25467b);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -103,15 +103,18 @@
 @keyframes moveUpDown {
   0%,
   100% {
-    transform: translateY(10px); /* Start and end at the bottom position */
+    transform: translateY(10px);
   }
   50% {
     transform: translateY(
       -30px
-    ); /* Move to the top position at 50% of the animation */
+    );
   }
 }
 
+/* nav bar end  */
+
+/* main container start  */
 .main-container .overlay {
   position: absolute;
   top: 0;
@@ -284,6 +287,8 @@
   border-radius: 10px 10px 0 0;
 }
 
+/* main container end  */
+
 /* for mobile responsive  */
 @media only screen and (max-width: 600px) {
   .text-container h4 {
@@ -312,12 +317,12 @@
   @keyframes moveUpDown {
     0%,
     100% {
-      transform: translateY(10px); /* Start and end at the bottom position */
+      transform: translateY(10px)
     }
     50% {
       transform: translateY(
         -10px
-      ); /* Move to the top position at 50% of the animation */
+      );
     }
   }
 }

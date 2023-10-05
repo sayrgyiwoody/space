@@ -1,5 +1,6 @@
 const btnPublish = document.querySelector(".btn-publish");
 
+//click btn-publish -> create post
 btnPublish.addEventListener("click",function(){
     const title = document.getElementById("titleInput").value;
     const image = document.getElementById("imageInput").value;
@@ -25,7 +26,6 @@ btnPublish.addEventListener("click",function(){
             createPost(post);
         });
     }
-    
 })
 
 // checking validation post create form 

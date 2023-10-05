@@ -18,7 +18,9 @@ const getPosts = async () => {
 
 getPosts();
 
+// render 10 recommend posts with view count most to least
 function renderRecommend(data){
+
   data.sort((a, b) => b.view_count - a.view_count);
     const recommend = data.slice(0, 10);
 
@@ -50,6 +52,7 @@ function renderRecommend(data){
   
 }
 
+// render 10 recommend posts with created_at date most to least
 function renderLatest(data){
   data.sort((a, b) => {
     return new Date(b.created_at) - new Date(a.created_at);

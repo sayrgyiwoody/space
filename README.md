@@ -85,3 +85,4 @@ Deployment - [Demo](https://sayrgyiwoody.github.io/space)
         password : user123
 ```
 
+*note : make for mobile first thus better with mobile responsive

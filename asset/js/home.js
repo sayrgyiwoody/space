@@ -1,5 +1,6 @@
 const posts_container = document.getElementById("posts-container");
 
+// start with page 1 
 var currentPage = 1;
 
 // fetch all posts from data.json
@@ -22,6 +23,7 @@ const getHomePosts = async () => {
 
 const paginateBtns = document.getElementById("paginate-btns");
 
+//check pagination btn next and previs to show or hide
 function checkPaginateBtns(dataLength){
   const postsPerPage = 10;
   const totalPage = Math.ceil(dataLength / postsPerPage);
@@ -43,18 +45,16 @@ function checkPaginateBtns(dataLength){
   }
 }
 
+// change page number and scroll back to top 
 function changePage(page){
   currentPage = page;
   getHomePosts();
   document.querySelector(".scroll-container").scrollTop = 0;
 }
 
-
-
-checkPaginateBtns();
-
 getHomePosts();
 
+// rendering home posts to posts container 
 function renderHomePosts(data){
   data.sort((a, b) => {
     return new Date(b.id) - new Date(a.id);
@@ -96,18 +96,18 @@ function renderHomePosts(data){
           <h4>${d.title}</h4>
           <p class="mb-3">${limitWords(d.content,20)}</p>
           <a href="../view/detail.html?id=${d.id}" class="btn-read-more">Read More
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                                            <g clip-path="url(#clip0_4_68)">
-                                              <path d="M8.75 7.5L11.25 10L8.75 12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                              <path d="M1.66666 10C1.66666 6.07169 1.66666 4.10752 2.88666 2.88669C4.10832 1.66669 6.07166 1.66669 9.99999 1.66669C13.9283 1.66669 15.8925 1.66669 17.1125 2.88669C18.3333 4.10835 18.3333 6.07169 18.3333 10C18.3333 13.9284 18.3333 15.8925 17.1125 17.1125C15.8933 18.3334 13.9283 18.3334 9.99999 18.3334C6.07166 18.3334 4.10749 18.3334 2.88666 17.1125C1.66666 15.8934 1.66666 13.9284 1.66666 10Z" stroke="white" stroke-width="2"/>
-                                            </g>
-                                            <defs>
-                                              <clipPath id="clip0_4_68">
-                                                <rect width="20" height="20" fill="white"/>
-                                              </clipPath>
-                                            </defs>
-                                          </svg>
-                                    </a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <g clip-path="url(#clip0_4_68)">
+                  <path d="M8.75 7.5L11.25 10L8.75 12.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M1.66666 10C1.66666 6.07169 1.66666 4.10752 2.88666 2.88669C4.10832 1.66669 6.07166 1.66669 9.99999 1.66669C13.9283 1.66669 15.8925 1.66669 17.1125 2.88669C18.3333 4.10835 18.3333 6.07169 18.3333 10C18.3333 13.9284 18.3333 15.8925 17.1125 17.1125C15.8933 18.3334 13.9283 18.3334 9.99999 18.3334C6.07166 18.3334 4.10749 18.3334 2.88666 17.1125C1.66666 15.8934 1.66666 13.9284 1.66666 10Z" stroke="white" stroke-width="2"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_4_68">
+                    <rect width="20" height="20" fill="white"/>
+                  </clipPath>
+                </defs>
+            </svg>
+        </a>
       </div>
 `;
   });
@@ -131,8 +131,7 @@ function getFormatDate(date){
   }
 
 
-//show/hide create form for mobile responsive
-
+//show or hide create form for mobile responsive
 function showCreate(){
     const createForm = document.querySelector(".post-create-container");
     const showCreate = document.getElementById("btn-show-create");
