@@ -314,6 +314,33 @@
       "created_at": "2023-10-05T05:44:57.882Z",
       "created_by": "User",
       "view_count": null
+    },
+    {
+      "id": 40,
+      "title": "Testing post ",
+      "image_url": "https://img.freepik.com/free-vector/gradient-galaxy-background_52683-140972.jpg?w=1480&t=st=1696485751~exp=1696486351~hmac=b79f55f7c6fc963ca827f33b3a33f8f46cb6dd34f8db58af6ce6435cdb04f9f6",
+      "content": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime beatae nam rem natus tempora eos aspernatur quo quaerat, iusto repellat? Inventore sit eum ipsam magnam sapiente quibusdam, esse aspernatur illo dolorum deleniti ducimus iste corporis praesentium doloribus nihil tempora eveniet magni itaque dicta. Incidunt fuga molestias quisquam at voluptate id eaque sit voluptatum vero, minus quasi vitae quis itaque numquam! Sequi mollitia quidem quis ea ad earum nemo qui aliquid.\n",
+      "created_at": "2023-10-05T06:03:22.442Z",
+      "created_by": "User",
+      "view_count": null
+    },
+    {
+      "id": 41,
+      "title": "title",
+      "image_url": "https://img.freepik.com/free-vector/gradient-galaxy-background_52683-140972.jpg?w=1480&t=st=1696485751~exp=1696486351~hmac=b79f55f7c6fc963ca827f33b3a33f8f46cb6dd34f8db58af6ce6435cdb04f9f6",
+      "content": "test render",
+      "created_at": "2023-10-05T06:06:11.745Z",
+      "created_by": "User",
+      "view_count": null
+    },
+    {
+      "id": 43,
+      "title": "test",
+      "image_url": "https://img.freepik.com/free-vector/cute-astronaut-concept-illustration_114360-8709.jpg?w=1060&t=st=1696486068~exp=1696486668~hmac=02b4ef76daa98643e5b2180b656f6b6e7bb0e2cad8cf2e7fbadbc9ce6c0e967e",
+      "content": "test edit post",
+      "created_at": "2023-10-05T06:21:10.528Z",
+      "created_by": "User",
+      "view_count": null
     }
   ]
 }

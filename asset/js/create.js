@@ -1,4 +1,3 @@
-
 const btnPublish = document.querySelector(".btn-publish");
 
 btnPublish.addEventListener("click",function(){
@@ -36,7 +35,9 @@ function createPost(post){
         body: JSON.stringify(post)
     })
     .then(response => response.json())
-    .then(data => console.log('Created:', data));
+    .then(function(data){
+        window.location.reload();
+    });
 }
 
 // get max id for id 
