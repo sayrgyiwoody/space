@@ -4,7 +4,7 @@
 
 # SPACE
 
-![Snap Shot](https://github.com/sayrgyiwoody/space/blob/main/asset/images/SPACE_snap.jpg?raw=true)
+![Snap Shot](./asset/images/SPACE_snap.bmp)
 
 Deployment - [Demo](https://sayrgyiwoody.github.io/space)
 
