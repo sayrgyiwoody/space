@@ -1,13 +1,14 @@
 // fetch all posts from data.json
 const getPosts = async () => {
   try {
-    const response = await fetch(`http://localhost:3000/posts/`);
+    const response = await fetch(`./data.json`);
     const data = await response.json();
 
     if (data) {
       // render to recommend and latest post containers 
-      renderRecommend(data);
-      renderLatest(data);
+      
+      renderRecommend(data.posts);
+      renderLatest(data.posts);
     } else {
       console.error(`Posts not found.`);
     }
