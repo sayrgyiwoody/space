@@ -76,13 +76,20 @@ Deployment - [Demo](https://sayrgyiwoody.github.io/space)
 
 ## Installation
 
+#Install json-server
 ```
-    #host json-server 
-        npm install -g json-server
-        json-server --watch data.json --port 3000
-    #login with
-        email : user@gmail.com
-        password : user123
+npm install -g json-server
+```
+
+#Host json-server to port 3000
+```
+json-server --watch data.json --port 3000
+```
+
+#login with
+```
+email : user@gmail.com
+password : user123
 ```
 
 *note : make for mobile first thus better with mobile responsive
