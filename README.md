@@ -92,4 +92,4 @@ email : user@gmail.com
 password : user123
 ```
 
-*note : make for mobile first thus better with mobile responsive
+*note : Developed for mobile first thus better with mobile responsive
